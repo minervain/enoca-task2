@@ -1,36 +1,42 @@
 import React from 'react';
 import ResultContext from '../Context/ResultContext';
 import { useContext } from 'react';
+import HistoryContext from '../Context/HistoryContext';
 
 const Keyboard = () => {
     const { result, setResult } = useContext(ResultContext);
 
 
+
     const ClickX = (e) => {
+        setResult(result + e.target.name);
+      };
 
-        setResult(result.concat(e.target.name))
-
-    };
-
-    const clear=()=>{
+    const clear = () => {
         setResult("")
     }
 
-    const Calculate=()=>{
-        try{        setResult(eval(result).toString());
+    const Calculate = () => {
+        try {
+            setResult(eval(result).toString());
         }
-        catch(err){
-                setResult(err.message)
+        catch (err) {
+            setResult(err.message)
         }
     }
 
+    const Cevirme = () => {
+        setResult(-result)
+    }
+    
+    
     return (
-        <div>
+        <div>   
             <div className="keyboard">
                 <div className="geneldiv">
                     <div className="cleaner">
                         <button onClick={clear} id='clear' className="cl">AC</button>
-                        <button onClick={ClickX} className="cl">+/-</button>
+                        <button onClick={Cevirme} id='cevirme' className="cl">+/-</button>
                         <button onClick={ClickX} className="cl">%</button>
                     </div>
                     <div className="sayilar">
@@ -51,7 +57,7 @@ const Keyboard = () => {
                             <button onClick={ClickX} name='6' className="nmbrs">6</button>
                             <button onClick={ClickX} name='9' className="nmbrs">9</button>
                             <button onClick={ClickX} name='00' className="nmbrs">00</button>
-                        </div>  
+                        </div>
                     </div>
                 </div>
                 <div className="islemler">

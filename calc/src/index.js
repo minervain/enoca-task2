@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ResultProvider from './Context/ResultProvider';
 import { DarkModeProvider } from './Context/DarkModeContext';
+import HistoryProvider from './Context/HistoryProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-          <DarkModeProvider>
+    <DarkModeProvider>
+      <HistoryProvider>
 
-    <ResultProvider>
-    <App />
-    </ResultProvider>
+        <ResultProvider>
+          <App />
+        </ResultProvider>
+      </HistoryProvider>
     </DarkModeProvider>
 
   </React.StrictMode>

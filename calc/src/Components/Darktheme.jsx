@@ -5,9 +5,17 @@ function Darktheme() {
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   return (
-    <button onClick={toggleDarkMode}>
-      {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-    </button>
+    <div className='themechange'>
+      <label htmlFor="toggle" className="theme-toggler settings-option" id="theme-toggler"></label>
+    <input
+        type="checkbox"
+        id="toggle"
+        className="theme-toggler__checkbox"
+        checked={isDarkMode}
+        onChange={toggleDarkMode}
+      />
+       <span aria-hidden="true" className="theme-toggler__switch"></span>
+      </div>
   );
 }
 
