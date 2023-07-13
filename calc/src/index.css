@@ -338,6 +338,7 @@ background-color: #35394b;
 .modal {
   background-color: #446264;
   padding: 20px;
+  width: 350px;
   border-radius: 8px;
     overflow-y: scroll  ;
 
